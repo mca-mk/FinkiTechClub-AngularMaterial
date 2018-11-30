@@ -1,0 +1,73 @@
+<mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+  <mat-tab label="Males">
+    <mat-table [dataSource]="males" class="mat-elevation-z8">
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+      </ng-container>
+
+      <!-- Major Column -->
+      <ng-container matColumnDef="major">
+        <mat-header-cell *matHeaderCellDef> Major </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.major }} </mat-cell>
+      </ng-container>
+
+      <!-- Add New Student -->
+      <ng-container matColumnDef="addNew">
+          <mat-footer-cell mat-footer-cell *matFooterCellDef>
+            <button class='add-new' mat-raised-button color="primary" (click)="toStudentsdetails(0)">
+              ADD NEW
+            </button>
+          </mat-footer-cell>
+        </ng-container>
+
+      <mat-footer-row
+        *matFooterRowDef="['addNew']"
+        class="footer"
+      ></mat-footer-row>
+
+      <mat-header-row *matHeaderRowDef="['name', 'major']"></mat-header-row>
+      <mat-row
+        *matRowDef="let row; columns: ['name', 'major']"
+        (click)="toStudentsdetails(row.id)"
+      ></mat-row>
+    </mat-table>
+  </mat-tab>
+
+  <mat-tab label="Females">
+    <mat-table [dataSource]="females" class="mat-elevation-z8">
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+      </ng-container>
+
+      <!-- Major Column -->
+      <ng-container matColumnDef="major">
+        <mat-header-cell *matHeaderCellDef> Major </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.major }} </mat-cell>
+      </ng-container>
+
+      <!-- Add New Student -->
+      <ng-container matColumnDef="addNew">
+        <mat-footer-cell mat-footer-cell *matFooterCellDef>
+            <button class='add-new' mat-raised-button color="primary" (click)="toStudentsdetails(0)">
+                ADD NEW
+          </button>
+        </mat-footer-cell>
+      </ng-container>
+
+      <mat-footer-row
+        *matFooterRowDef="['addNew']"
+        class="footer"
+      ></mat-footer-row>
+
+      <mat-header-row *matHeaderRowDef="['name', 'major']"></mat-header-row>
+      <mat-row
+        *matRowDef="let row; columns: ['name', 'major']"
+        (click)="toStudentsdetails(row.id)"
+      ></mat-row>
+    </mat-table>
+  </mat-tab>
+</mat-tab-group>
